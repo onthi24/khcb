@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAMINS - Hệ thống học tập</title>
+    <title>Quản lí dữ liệu KHDB& dữ liệu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -122,7 +122,7 @@
         }
 
         .dropdown-content a:last-child { border-bottom: none; }
-        
+         
         .dropdown-content a:hover {
             background-color: #ddd;
             color: var(--primary-orange);
@@ -190,9 +190,16 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        .bg-green { background: #1a4d2e; }
-        .bg-blue { background: #78281f; }
-        .bg-orange { background: #B5782A; }
+        /* Giữ nguyên màu sắc đặc trưng của Code 1 */
+        .bg-green { background: #1a4d2e; }   /* Màu xanh lá đậm */
+        .bg-blue { background: #78281f; }    /* Màu đỏ đô */
+        .bg-orange { background: #B5782A; }  /* Màu cam đất */
+
+        /* Định dạng khối tiêu đề trắng từ Code 2 chuyển sang style Code 1 */
+        .menu-block {
+            display: flex;
+            flex-direction: column;
+        }
 
         .item-card {
             background: #fff;
@@ -203,6 +210,7 @@
             display: block;
             box-shadow: 0 3px 8px rgba(0,0,0,0.08);
             transition: 0.2s;
+            cursor: pointer;
         }
 
         .item-card:hover {
@@ -215,6 +223,38 @@
             font-weight: 700; 
             color: #222; 
             font-size: 18px;
+        }
+
+        /* ĐỊNH DẠNG DROPDOWN CON THẢ DƯỚI CARD TRẮNG (CỦA CODE 2) */
+        .sheet-dropdown {
+            margin-top: -6px;
+            margin-bottom: 5px;
+            padding: 10px 18px 6px 18px;
+            background: #ffffff;
+            border-radius: 0 0 16px 16px;
+            border: 1.5px solid #b5b5b5;
+            border-top: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+            display: none;
+        }
+
+        .sheet-dropdown a {
+            display: block;
+            text-decoration: none;
+            color: #4a5568;
+            padding: 8px 0;
+            font-size: 15px;
+            border-bottom: 1px solid #f1f4f6;
+            transition: 0.2s;
+        }
+
+        .sheet-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .sheet-dropdown a:hover {
+            color: #3498db;
+            padding-left: 6px;
         }
 
         /* --- FOOTER ACTIONS --- */
@@ -240,14 +280,12 @@
         .link-detail { font-weight: bold; text-decoration: none; font-size: 15px; text-transform: uppercase; } 
         .copyright { color: #999; font-size: 14px; padding-left: 20px; max-width: 1100px; margin: 0 auto 20px auto; }
 
-
         /* ========================================================
-           📱 ĐIỀU CHỈNH GIAO DIỆN TRÊN ĐIỆN THOẠI CHUẨN XỊN 100% THEO ẢNH
+           📱 ĐIỀU CHỈNH GIAO DIỆN TRÊN ĐIỆN THOẠI CHUẨN XỊN 100% 
            ======================================================== */
         @media (max-width: 768px) {
-            body { padding: 0px; } /* Xóa khoảng trắng viền để khớp sát ảnh nền */
+            body { padding: 0px; } 
 
-            /* Cấu trúc thanh trên cùng: Nút 3 gạch ☰ nằm bên trái, Logo nằm cạnh giống ảnh */
             .top-navbar {
                 justify-content: flex-start; 
                 gap: 15px;
@@ -258,7 +296,7 @@
             }
 
             .mobile-menu-btn {
-                display: block; /* Hiện nút ☰ ở góc bên trái */
+                display: block; 
             }
 
             .logo-box {
@@ -266,11 +304,10 @@
                 margin-bottom: 0;
             }
 
-            /* CHUYỂN TOÀN BỘ DANH MỤC THÀNH SIDEBAR KHUẤT BÊN TRÁI (KHI BẤM NÚT ☰ MỚI HIỆN) */
             .nav-menu {
                 position: fixed;
                 top: 0;
-                left: -280px; /* Giấu sang lề trái màn hình */
+                left: -280px; 
                 width: 260px;
                 height: 100%;
                 background-color: #f4f6f8;
@@ -282,12 +319,10 @@
                 gap: 0;
             }
 
-            /* Khi bấm nút ☰, class này sẽ được kích hoạt để đẩy Sidebar xuất hiện dọc */
             .nav-menu.open {
                 left: 0 !important;
             }
 
-            /* Nút Đóng (✕) nằm ở góc trái trên cùng Sidebar */
             .mobile-close-btn {
                 display: block !important;
                 position: absolute;
@@ -301,7 +336,6 @@
 
             .nav-item-wrap { width: 100%; }
 
-            /* Định dạng các dòng văn bản menu dọc bên trong Sidebar */
             .nav-item {
                 padding: 14px 24px;
                 font-size: 18px;
@@ -309,12 +343,11 @@
                 font-weight: 600;
                 border-bottom: none;
                 border-left: 5px solid transparent;
-                justify-content: space-between; /* Chữ bên trái, mũi tên bên phải */
+                justify-content: space-between; 
                 width: 100%;
                 background-color: transparent;
             }
 
-            /* Vết gạch đứng màu đen ở biên trái của mục đang được kích hoạt */
             .nav-item.active {
                 background-color: #e2e8f0;
                 border-left: 6px solid #000 !important;
@@ -322,18 +355,17 @@
                 font-weight: bold;
             }
 
-            /* CẤU TRÚC DROPDOWN CON MỞ RỘNG TRÊN DI ĐỘNG */
             .nav-item-wrap .dropdown-content {
                 display: none;
-                position: static; /* Hủy absolute của PC để xếp chồng bên dưới */
+                position: static; 
                 width: 100%;
                 box-shadow: none;
+                background-color: #author;
                 background-color: #eaedf1;
                 padding-left: 15px;
                 border-radius: 0;
             }
 
-            /* Hiển thị menu dọc con khi bấm chọn danh mục cha */
             .nav-item-wrap.active-mobile .dropdown-content {
                 display: flex !important;
                 flex-direction: column;
@@ -346,21 +378,19 @@
                 border-bottom: 1px solid #cbd5e1;
             }
 
-            /* Vô hiệu hóa hover trên Mobile */
             .nav-item-wrap:hover .dropdown-content { display: none; }
 
-            /* Định dạng phần thân tiêu đề và tìm kiếm */
             .header-main {
                 flex-direction: column;
                 padding: 0 15px;
                 gap: 12px;
-                align-items: flex-start; /* Căn trái tiêu đề Trang chủ đúng ảnh số 1 */
+                align-items: flex-start; 
             }
 
             .main-title {
                 font-size: 32px;
                 font-weight: 800;
-                color: #1a4d2e; /* Màu xanh đậm của chữ Trang chủ */
+                color: #1a4d2e; 
                 margin: 5px 0 0 0;
                 text-align: left;
             }
@@ -368,17 +398,165 @@
             .search-box { width: 100%; padding: 0 15px; }
             .search-box input { width: 100%; border-radius: 20px; }
 
-            /* Bo sát viền các khối bài học xếp chồng đúng ảnh 1 */
             .container { flex-direction: column; gap: 8px; padding: 0; margin-top: 15px; }
             .column-header { border-radius: 0; font-size: 18px; padding: 14px; text-align: center; }
+            
             .item-card { border-radius: 0; border-left: none; border-right: none; padding: 14px; }
             .item-card h2 { font-size: 16px; text-align: center; }
+            .sheet-dropdown { border-radius: 0; border-left: none; border-right: none; }
+            .sheet-dropdown a { text-align: center; }
 
             .footer-action { flex-direction: column; align-items: center; gap: 20px; text-align: center; padding: 20px; }
             .btn-register { width: 100%; }
             .copyright { text-align: center; font-size: 13px; padding-left: 0; }
         }
     </style>
+    
+    <script>
+        // Đường dẫn xuất bản từ Google Sheets của bạn từ Code 2
+        const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGSAfaa7s68I0cwNes4pEDCOHUFynPUujt-dUHUEG3HtrdfEPpNDX2Ejtv4NZZ5FcKTtOdAaWLGiCm/pub?gid=0&single=true&output=tsv";
+
+        function normalizeGoogleDriveLink(rawUrl) {
+            if (!rawUrl || rawUrl.trim() === "" || rawUrl.trim() === "#") return "#";
+            let folderIdMatch = rawUrl.match(/folders\/([a-zA-Z0-9-_]{33,})/);
+            if (folderIdMatch && folderIdMatch[1]) {
+                return "https://drive.google.com/drive/folders/" + folderIdMatch[1] + "?usp=drive_link";
+            }
+            return rawUrl;
+        }
+
+        // Tải dữ liệu từ Google Sheet lên khi web load xong
+        window.addEventListener('DOMContentLoaded', () => {
+            fetch(CSV_URL)
+                .then(response => response.text())
+                .then(text => {
+                    let lines = text.split(/\r?\n/);
+                    
+                    // Bước 1: Tạo tiêu đề mục lớn (I_1, II_1...)
+                    for (let i = 1; i < lines.length; i++) {
+                        if (!lines[i].trim()) continue;
+                        let columns = lines[i].split('\t');
+                        if (columns.length >= 2) {
+                            let id = columns[0].trim().toUpperCase().replace(/\s+/g, '');
+                            let textDisplay = columns[1].trim().replace(/^"|"$/g, '');
+                            
+                            let idParts = id.split('_');
+                            if (idParts.length === 2) {
+                                let columnGroup = idParts[0]; 
+                                let colElement = document.getElementById('col-' + columnGroup);
+                                
+                                if (colElement) {
+                                    let blockDiv = document.createElement('div');
+                                    blockDiv.className = 'menu-block';
+                                    
+                                    let cardDiv = document.createElement('div');
+                                    cardDiv.className = 'item-card';
+                                    cardDiv.setAttribute('onclick', `toggleMenu('drop-${id}')`);
+                                    cardDiv.innerHTML = `<h2>${textDisplay}</h2>`;
+                                    
+                                    let dropdownDiv = document.createElement('div');
+                                    dropdownDiv.className = 'sheet-dropdown';
+                                    dropdownDiv.id = 'drop-' + id;
+                                    
+                                    blockDiv.appendChild(cardDiv);
+                                    blockDiv.appendChild(dropdownDiv);
+                                    colElement.appendChild(blockDiv);
+                                }
+                            }
+                        }
+                    }
+
+                    // Bước 2: Nhét các đường Link con vào đúng ô tiêu đề
+                    for (let i = 1; i < lines.length; i++) {
+                        if (!lines[i].trim()) continue;
+                        let columns = lines[i].split('\t');
+                        if (columns.length >= 3) {
+                            let id = columns[0].trim().toUpperCase().replace(/\s+/g, '');
+                            let textDisplay = columns[1].trim().replace(/^"|"$/g, '');
+                            let url = columns[2].trim().replace(/^"|"$/g, '');
+                            
+                            let idParts = id.split('_');
+                            if (idParts.length >= 3) {
+                                let parentId = 'drop-' + idParts[0] + '_' + idParts[1]; 
+                                let targetDropdown = document.getElementById(parentId);
+                                
+                                if (targetDropdown) {
+                                    let aTag = document.createElement('a');
+                                    aTag.id = id;
+                                    aTag.href = normalizeGoogleDriveLink(url);
+                                    aTag.target = "_blank";
+                                    aTag.textContent = textDisplay;
+                                    targetDropdown.appendChild(aTag);
+                                }
+                            }
+                        }
+                    }
+
+                    // Bước 3: Điền chữ thông báo nếu mục đó trống
+                    document.querySelectorAll('.sheet-dropdown').forEach(div => {
+                        if(div.innerHTML.trim() === '') {
+                            div.innerHTML = '<span style="color:#95a5a6; font-size:13px; display:block; padding:3px 10px; font-style: italic; text-align:center;">Chưa có dữ liệu con</span>';
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Lỗi khi tải dữ liệu từ Google Sheet:", error);
+                });
+
+            // Tự động nhận diện URL thiết lập trạng thái Menu tích cực
+            const currentUrl = window.location.href;
+            document.querySelectorAll('.nav-menu .nav-item').forEach(el => el.classList.remove('active'));
+            if (currentUrl.includes('/video/')) {
+                document.getElementById('menu-video').classList.add('active');
+            } else {
+                document.getElementById('menu-home').classList.add('active');
+            }
+
+            // Click ra ngoài đóng menu di động
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const menu = document.getElementById('mobileNavMenu');
+                    if (!menu.contains(e.target)) {
+                        menu.classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        function toggleMenu(id) {
+            let menu = document.getElementById(id);
+            if (!menu) return;
+            let isCurrentlyOpen = (menu.style.display === "block");
+            document.querySelectorAll(".sheet-dropdown").forEach(m => {
+                m.style.display = "none";
+            });
+            menu.style.display = isCurrentlyOpen ? "none" : "block";
+        }
+
+        function openMobileMenu(e) {
+            e.stopPropagation();
+            document.getElementById('mobileNavMenu').classList.add('open');
+        }
+
+        function closeMobileMenu(e) {
+            e.stopPropagation();
+            document.getElementById('mobileNavMenu').classList.remove('open');
+        }
+
+        function handleMobileClick(wrapper, event) {
+            if (window.innerWidth <= 768) {
+                if (event.target.tagName === 'A' && event.target.getAttribute('href') !== '#') {
+                    return; 
+                }
+                event.preventDefault();
+                event.stopPropagation();
+                document.querySelectorAll('.nav-item-wrap').forEach(el => {
+                    if (el !== wrapper) el.classList.remove('active-mobile');
+                });
+                wrapper.classList.toggle('active-mobile');
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -386,41 +564,34 @@
         <div class="mobile-menu-btn" onclick="openMobileMenu(event)"><i class="fa fa-bars"></i></div>
 
         <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/onthi24/namins/main/logo.github2.png" alt="NAMINS LOGO" class="logo-img">
+            <img src="https://raw.githubusercontent.com/onthi24/khcb/main/KHCB%20-%20n%E1%BB%81n%20trong.png" alt="KHCB LOGO" class="logo-img">
         </div>
         
         <div class="nav-menu" id="mobileNavMenu">
             <div class="mobile-close-btn" onclick="closeMobileMenu(event)"><i class="fa fa-times"></i></div>
 
             <div class="nav-item-wrap">
-                <a href="https://namins.com/" class="nav-item" id="menu-home">Trang chủ</a>
+                <a href="#" class="nav-item" id="menu-home">Trang chủ</a>
             </div>
 
             <div class="nav-item-wrap" onclick="handleMobileClick(this, event)">
-                <a href="#" class="nav-item" id="menu-thpt">Toán THPT <i class="fa fa-chevron-down" style="font-size: 11px;"></i></a>
+                <a href="#" class="nav-item" id="menu-thpt">Quản lí hoạt động khoa <i class="fa fa-chevron-down" style="font-size: 11px;"></i></a>
                 <div class="dropdown-content">
-                    <a href="https://namins.com/toan-thpt/toan12.html">Toán 12</a>
-                    <a href="https://namins.com/toan-thpt/toan11.html">Toán 11</a>
-                    <a href="https://namins.com/toan-thpt/toan10.html">Toán 10</a>
+                    <span style="font-size:13px; color:#777; padding:10px; display:block;">Dữ liệu tự động đồng bộ từ bảng dưới</span>
                 </div>
             </div>
 
             <div class="nav-item-wrap" onclick="handleMobileClick(this, event)">
-                <a href="#" class="nav-item" id="menu-thcs">Toán THCS <i class="fa fa-chevron-down" style="font-size: 11px;"></i></a>
+                <a href="#" class="nav-item" id="menu-thcs">Chương trình đào tạo <i class="fa fa-chevron-down" style="font-size: 11px;"></i></a>
                 <div class="dropdown-content">
-                    <a href="https://namins.com/toan-thcs/toan9.html">Toán 9</a>
-                    <a href="https://namins.com/toan-thcs/toan8.html">Toán 8</a>
-                    <a href="https://namins.com/toan-thcs/toan7.html">Toán 7</a>
-                    <a href="https://namins.com/toan-thcs/toan6.html">Toán 6</a>
+                    <span style="font-size:13px; color:#777; padding:10px; display:block;">Dữ liệu tự động đồng bộ từ bảng dưới</span>
                 </div>
             </div>
 
             <div class="nav-item-wrap" onclick="handleMobileClick(this, event)">
-                <a href="#" class="nav-item" id="menu-vatli">Vật Lí <i class="fa fa-chevron-down" style="font-size: 11px;"></i></a>
+                <a href="#" class="nav-item" id="menu-vatli">Hoạt động khác <i class="fa fa-chevron-down" style="font-size: 11px;"></i></a>
                 <div class="dropdown-content">
-                    <a href="https://namins.com/vatli/vatli12.html">Vật Lí 12</a>
-                    <a href="https://namins.com/vatli/vatli11.html">Vật Lí 11</a>
-                    <a href="https://namins.com/vatli/vatli10.html">Vật Lí 10</a>
+                    <span style="font-size:13px; color:#777; padding:10px; display:block;">Dữ liệu tự động đồng bộ từ bảng dưới</span>
                 </div>
             </div>
 
@@ -438,100 +609,29 @@
     </div>
 
     <div class="container">
-        <div class="column">
-            <div class="column-header bg-green">1. Toán THCS</div>
-            <a class="item-card" href="https://namins.com/toan-thcs/toan9.html"><h2>Toán 9</h2></a>
-            <a class="item-card" href="https://namins.com/toan-thcs/toan8.html"><h2>Toán 8</h2></a>
-            <a class="item-card" href="https://namins.com/toan-thcs/toan7.html"><h2>Toán 7</h2></a>
-            <a class="item-card" href="https://namins.com/toan-thcs/toan6.html"><h2>Toán 6</h2></a>
+        <div class="column" id="col-I">
+            <div class="column-header bg-green">1. Chương trình đào tạo</div>
         </div>
 
-        <div class="column">
-            <div class="column-header bg-blue">2. Toán THPT</div>
-            <a class="item-card" href="https://namins.com/toan-thpt/toan12.html"><h2>Toán 12</h2></a>
-            <a class="item-card" href="https://namins.com/toan-thpt/toan11.html"><h2>Toán 11</h2></a>
-            <a class="item-card" href="https://namins.com/toan-thpt/toan10.html"><h2>Toán 10</h2></a>
+        <div class="column" id="col-II">
+            <div class="column-header bg-blue">2. Quản lí hoạt động khoa</div>
         </div>
 
-        <div class="column">
-            <div class="column-header bg-orange">3. Vật Lí & KHTN</div>
-            <a class="item-card" href="https://namins.com/vatli/vatli12.html"><h2>Vật Lí 12</h2></a>
-            <a class="item-card" href="https://namins.com/vatli/vatli11.html"><h2>Vật Lí 11</h2></a>
-            <a class="item-card" href="https://namins.com/vatli/vatli10.html"><h2>Vật Lí 10</h2></a>
+        <div class="column" id="col-III">
+            <div class="column-header bg-orange">3. Hoạt động khác</div>
         </div>
     </div>
 
     <div class="footer-action">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdX0G3eI0fttdhqXR_YAexVfp2LlgFBJTWZUpS4gGjICfkZ_Q/viewform?..." target="_blank" style="text-decoration: none;">
-            <button class="btn-register">ĐĂNG KÍ HỌC NGAY</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSePx34NyWHvOe2ulC5mNf0UDnNjiNXl08puh1G5u6qKyCnRIw/viewform" target="_blank" style="text-decoration: none;">
+            <button class="btn-register">BÁO CÁO VẮNG</button>
         </a>
-        <a href="https://sites.google.com/view/namins2" target="_blank" class="link-detail" style="color: #78281f;">
-            GIỚI THIỆU VỀ NAMINS.COM
+        <a href="http://dhcd.edu.vn/b/Tin-Khac/KHOA-KHOA-HOC-CO-BAN-VA-DU-LIEU.html" target="_blank" class="link-detail" style="color: #78281f;">
+            giới thiệu về KHCB và dữ liệu
         </a>
     </div>
 
-    <div class="copyright">© 2026 NAMINS</div>
+    <div class="copyright">© 2026 Quản lí dữ liệu KHDB& dữ liệu</div>
 
-    <script>
-        // Hàm mở Sidebar menu dọc di động khi bấm ☰
-        function openMobileMenu(e) {
-            e.stopPropagation();
-            document.getElementById('mobileNavMenu').classList.add('open');
-        }
-
-        // Hàm đóng Sidebar menu dọc di động khi bấm X
-        function closeMobileMenu(e) {
-            e.stopPropagation();
-            document.getElementById('mobileNavMenu').classList.remove('open');
-        }
-
-        // Xử lý click đóng/mở danh mục mở rộng dọc bên dưới mục cha khi ở giao diện Sidebar di động (Ảnh số 2)
-        function handleMobileClick(wrapper, event) {
-            if (window.innerWidth <= 768) {
-                if (event.target.tagName === 'A' && event.target.getAttribute('href') !== '#') {
-                    return; // Nếu chọn bài học con cụ thể thì chuyển trang đi luôn
-                }
-                event.preventDefault();
-                event.stopPropagation();
-
-                // Tự động thu gọn các danh mục mở rộng khác trước khi hiển thị danh mục mới
-                document.querySelectorAll('.nav-item-wrap').forEach(el => {
-                    if (el !== wrapper) el.classList.remove('active-mobile');
-                });
-
-                wrapper.classList.toggle('active-mobile');
-            }
-        }
-
-        // Tự động nhận diện URL của trang hiện tại để phân phối thanh gạch chân đen / gạch dọc biên trái chính xác
-        window.addEventListener('DOMContentLoaded', () => {
-            const currentUrl = window.location.href;
-            
-            document.querySelectorAll('.nav-menu .nav-item').forEach(el => el.classList.remove('active'));
-            
-            if (currentUrl.includes('/toan-thpt/')) {
-                document.getElementById('menu-thpt').classList.add('active');
-            } else if (currentUrl.includes('/toan-thcs/')) {
-                document.getElementById('menu-thcs').classList.add('active');
-            } else if (currentUrl.includes('/vatli/')) {
-                document.getElementById('menu-vatli').classList.add('active');
-            } else if (currentUrl.includes('/video/')) {
-                document.getElementById('menu-video').classList.add('active');
-            } else {
-                // Khi người dùng gõ hoặc bấm về trang chủ, vết đen được giữ cố định ở Trang chủ cực kỳ chuẩn chỉnh
-                document.getElementById('menu-home').classList.add('active');
-            }
-
-            // Chạm click ra vùng trống bên ngoài Sidebar di động thì tự động thu gọn menu trượt lại gọn gàng
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    const menu = document.getElementById('mobileNavMenu');
-                    if (!menu.contains(e.target)) {
-                        menu.classList.remove('open');
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
