@@ -29,7 +29,7 @@
         /* --- THANH ĐIỀU HƯỚNG TỔNG (TOP NAVBAR) --- */
         .top-navbar {
             max-width: 1100px;
-            margin: 0 auto 25px auto; /* Tăng margin bottom để bù khoảng trống khi xóa chữ Trang chủ */
+            margin: 0 auto 25px auto;
             width: 100%;
             background-color: #f1f4f6;
             padding: 10px 15px;
@@ -101,10 +101,10 @@
         /* Nút Close X ẩn mặc định trên PC */
         .mobile-close-btn { display: none; }
 
-        /* --- PHẦN TÌM KIẾM (Đã bỏ tiêu đề Trang chủ cũ) --- */
+        /* --- PHẦN TÌM KIẾM --- */
         .header-main {
             display: flex;
-            justify-content: flex-end; /* Đẩy khung tìm kiếm sang phải khi không có tiêu đề */
+            justify-content: flex-end;
             align-items: center;
             max-width: 1100px;
             margin: 0 auto 25px auto;
@@ -236,7 +236,7 @@
         .copyright { color: #999; font-size: 14px; padding-left: 20px; max-width: 1100px; margin: 0 auto 20px auto; }
 
         /* ========================================================
-           📱 ĐIỀU CHỈNH GIAO DIỆN TRÊN ĐIỆN THOẠI CHUẨN XỊN
+           📱 ĐIỀU CHỈNH GIAO DIỆN TRÊN ĐIỆN THOẠI (ĐÃ THU NHỎ CHỮ CHUẨN)
            ======================================================== */
         @media (max-width: 768px) {
             body { padding: 0px; } 
@@ -291,9 +291,10 @@
 
             .nav-item-wrap { width: 100%; }
 
+            /* Thu nhỏ font chữ thanh menu dọc mobile */
             .nav-item {
-                padding: 14px 24px;
-                font-size: 18px;
+                padding: 12px 20px;
+                font-size: 15px; 
                 color: #222;
                 font-weight: 600;
                 border-bottom: none;
@@ -318,19 +319,26 @@
             }
 
             .search-box { width: 100%; padding: 0 15px; }
-            .search-box input { width: 100%; border-radius: 20px; }
+            .search-box input { width: 100%; border-radius: 20px; font-size: 14px; padding: 8px 14px; }
 
             .container { flex-direction: column; gap: 8px; padding: 0; margin-top: 5px; }
-            .column-header { border-radius: 0; font-size: 18px; padding: 14px; text-align: center; }
             
-            .item-card { border-radius: 0; border-left: none; border-right: none; padding: 14px; }
-            .item-card h2 { font-size: 16px; text-align: center; }
-            .sheet-dropdown { border-radius: 0; border-left: none; border-right: none; }
-            .sheet-dropdown a { text-align: center; }
+            /* Thu nhỏ chữ tiêu đề khối bài học trên mobile */
+            .column-header { border-radius: 0; font-size: 15px; padding: 12px; text-align: center; }
+            
+            .item-card { border-radius: 0; border-left: none; border-right: none; padding: 12px; }
+            
+            /* Thu nhỏ chữ bài học con trên mobile */
+            .item-card h2 { font-size: 14px; text-align: center; font-weight: 600; }
+            
+            /* Thu nhỏ link con từ google sheet */
+            .sheet-dropdown a { text-align: center; font-size: 13.5px; padding: 7px 0; }
 
-            .footer-action { flex-direction: column; align-items: center; gap: 20px; text-align: center; padding: 20px; }
-            .btn-register { width: 100%; }
-            .copyright { text-align: center; font-size: 13px; padding-left: 0; }
+            /* Điều chỉnh chân trang mobile */
+            .footer-action { flex-direction: column; align-items: center; gap: 15px; text-align: center; padding: 15px; margin: 30px auto 15px auto; }
+            .btn-register { width: 100%; padding: 12px 20px; font-size: 14px; }
+            .link-detail { font-size: 14px; }
+            .copyright { text-align: center; font-size: 12px; padding-left: 0; }
         }
     </style>
     
